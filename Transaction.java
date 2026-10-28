@@ -20,38 +20,22 @@ public class Transaction
         this.category = category;
     }
 
-
-     // ----- acessor methods -----
-
-
-    /**
-     * returns the cost of the transaction
-     */
-    public void getAmount()
+    public int getAmount()
     {
         return amount;
     }
 
-    /**
-     * returns the date of the transaction
-     */
-    public void getDate()
+    public String getDate()
     {
         return date;
     }
 
-    /**
-     * returns the category
-     */
-    public void getCategory()
+    public String getCategory()
     {
         return category;
     }
 
-    /**
-     * return the description
-     */
-    public void getDescription()
+    public String getDescription()
     {
         return description;
     }

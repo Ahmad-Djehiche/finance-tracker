@@ -25,7 +25,7 @@ public class Subscription
     {
         return amount;
     }
-    
+
     public int getPaySchedule()
     {
         return paySchedule;
