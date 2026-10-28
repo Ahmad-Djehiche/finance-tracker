@@ -7,6 +7,7 @@ public class Subscription
     //fields
     private int amount; //cost of subscription in pence
     private int paySchedule; //days between each payment
+    private String date; //inital date that subscription started on
     private String category;
     private String description;
 
@@ -39,5 +40,10 @@ public class Subscription
     public String getDescription()
     {
         return description;
+    }
+
+    public String getInitialDate()
+    {
+        return date;
     }
 }
