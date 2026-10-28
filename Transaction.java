@@ -24,7 +24,6 @@ public class Transaction
      // ----- acessor methods -----
 
 
-
     /**
      * returns the cost of the transaction
      */
