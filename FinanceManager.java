@@ -24,4 +24,10 @@ public class FinanceManager
         transactions.add(transaction);
     }
 
+    public void addSubscription(int amount, int paySchedule, String category, String description)
+    {
+        Subscription subscription = new Subscription(amount, paySchedule, category, description);
+        subscriptions.add(subscription);
+    }
+    
 }
