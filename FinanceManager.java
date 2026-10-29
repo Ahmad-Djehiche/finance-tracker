@@ -1,7 +1,7 @@
 import java.util.ArrayList;
-
+import java.util.Scanner;
 /**
- *
+ * 
  */
 public class FinanceManager
 {
@@ -24,9 +24,9 @@ public class FinanceManager
         transactions.add(transaction);
     }
 
-    public void addSubscription(int amount, int paySchedule, String category, String description)
+    public void addSubscription(int amount, String date, String category, String description)
     {
-        Subscription subscription = new Subscription(amount, paySchedule, category, description);
+        Subscription subscription = new Subscription(amount, date, category, description);
         subscriptions.add(subscription);
     }
 
@@ -44,6 +44,21 @@ public class FinanceManager
             }
         }
         return total;
+    }
+
+    public void getMonthlyBillables(String month)
+    {
+        for (Transaction transaction : transactions){
+            if (transaction.getDate().contains("/"+month+"/")){
+                System.out.println(transaction.getDetails());
+            }
+        }
+
+        for (Subscription subscription : subscriptions){
+            if (subscription.getBillableMonths().contains(Integer.parseInt(month))){
+                System.out.println(subscription.getDetails());
+            }
+        }
     }
     
 
