@@ -13,11 +13,12 @@ public class Transaction
     /**
      * constructor for Transaction
      */
-    public Transaction(int amount, String date, String category)
+    public Transaction(int amount, String date, String category, String description)
     {
         this.amount = amount;
         this.date = date;
         this.category = category;
+        this.description = description;
     }
 
     public int getAmount()

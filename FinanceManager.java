@@ -18,9 +18,9 @@ public class FinanceManager
         subscriptions = new ArrayList<>();
     }
 
-    public void addTransaction(int amount, String date, String category)
+    public void addTransaction(int amount, String date, String category, String description)
     {
-        Transaction transaction = new Transaction(amount, date, category);
+        Transaction transaction = new Transaction(amount, date, category, description);
         transactions.add(transaction);
     }
 
@@ -29,5 +29,23 @@ public class FinanceManager
         Subscription subscription = new Subscription(amount, paySchedule, category, description);
         subscriptions.add(subscription);
     }
+
+    public int getTotalSpendingCategory(String category)
+    {   
+        int total = 0; 
+        for (Transaction transaction : transactions){
+            if (transaction.getCategory().equalsIgnoreCase(category)){
+                total = total + transaction.getAmount();
+            }
+        }
+        for (Subscription subscription : subscriptions){
+            if (subscription.getCategory().equalsIgnoreCase(category)){
+                total = total + subscription.getAmount();
+            }
+        }
+        return total;
+    }
+    
+
     
 }
