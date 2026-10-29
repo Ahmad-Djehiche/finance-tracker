@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.Arrays;
 /**
  *
  */
@@ -6,30 +8,35 @@ public class Subscription
 {
     //fields
     private int amount; //cost of subscription in pence
-    private int paySchedule; //days between each payment
     private String date; //inital date that subscription started on
     private String category;
     private String description;
+    private ArrayList<Integer> billableMonths; 
 
     /**
      * constructor for Subscription
      */
-    public Subscription(int amount, int paySchedule, String category, String description)
+    public Subscription(int amount, String date, String category, String description)
     {
         this.amount = amount;
         this.category = category;
-        this.paySchedule = paySchedule;
         this.description = description;
+        this.date = date;
+        billableMonths = new ArrayList<>();
+
+
+        for (int i = getMonth(date);i < 13; i++){
+            billableMonths.add(i);
+        }
+
+        for (int integer : billableMonths){
+            System.out.println(integer);
+        }
     }
 
     public int getAmount()
     {
         return amount;
-    }
-
-    public int getPaySchedule()
-    {
-        return paySchedule;
     }
 
     public String getCategory()
@@ -45,5 +52,27 @@ public class Subscription
     public String getInitialDate()
     {
         return date;
+    }
+
+    public ArrayList<Integer> getBillableMonths()
+    {
+        return billableMonths;
+    }
+
+    public String getDetails()
+    {
+        String details;
+        
+        details = "subscription details: 1. amount: " + getAmount() + " 2. date: " +getInitialDate()+ " 3. category: "+getCategory()+ " 4. description: "+getDescription();
+        
+        return details;
+    }
+
+    public int getMonth(String date)
+    {
+        String [] characters = date.split("/");
+        int month = Integer.parseInt(characters[1]);
+
+        return month;
     }
 }

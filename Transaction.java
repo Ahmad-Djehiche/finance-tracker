@@ -6,7 +6,7 @@ public class Transaction
 {
     //fields
     private int amount; //cost of transaction in pence
-    private String date;
+    private String date; // dd/mm/yyyy
     private String category;
     private String description;
 
@@ -41,4 +41,12 @@ public class Transaction
         return description;
     }
 
+    public String getDetails()
+    {
+        String details;
+        
+        details = "transaction details: 1. amount: " + getAmount() + " 2. date: " +getDate()+ " 3. category: "+getCategory()+ " 4. description: "+getDescription();
+        
+        return details;
+    }
 }
